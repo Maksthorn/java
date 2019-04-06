@@ -18,13 +18,6 @@ private Connection connection;
  
         String driver = "net.ucanaccess.jdbc.UcanaccessDriver"; 
         Class.forName(driver);
-        
-        //String msAccDB = "..//Quiz.accdb";
-        //String hold = databaseName;
-        
-        //String dbURL = "jdbc:ucanaccess://" + databaseName;
-
-        // Step 2.A: Create and get connection using DriverManager class
         connection = DriverManager.getConnection("jdbc:ucanaccess://" + databaseName);
            
     }
@@ -41,8 +34,7 @@ private Connection connection;
         int done = stmt.executeUpdate(SQL);
         return done; 
     }
-    
-    //returns the ID of an sql stmt
+     //returns the ID of an sql stmt
     public int updateReturnID(String SQL)throws SQLException{
         Statement stmt = connection.createStatement();
         int id=-1;
@@ -53,7 +45,5 @@ private Connection connection;
         }
         return id; 
     }
-    
-    
     
 }

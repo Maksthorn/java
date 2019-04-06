@@ -1,8 +1,6 @@
 package quiz;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,15 +30,18 @@ private Manager manager;
             JOptionPane.showMessageDialog(this, "Application has ran into an SQL error " + ex);
         }
     }
+    
     public void answer(char letter){
     try {
+        //calls the answer method from the manager class to check answer
         boolean correct = manager.answer(letter);
+        
         if(correct){
-            JOptionPane.showMessageDialog(this, "Answer was wrong");
+            JOptionPane.showMessageDialog(this, "Answer was correct");
             txtDisplay.setText(manager.getQuestion());
             lblTier.setText(manager.getTier() + "");
         }else{
-            JOptionPane.showMessageDialog(this, "Answer was correct");
+            JOptionPane.showMessageDialog(this, "Answer was wrong");
             txtDisplay.setText(manager.getQuestion());
             lblScore.setText(manager.getScore() + "");
             
@@ -76,13 +77,13 @@ private Manager manager;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Question Tier :");
+        jLabel1.setText("Question Streak");
 
-        lblTier.setText("tier");
+        lblTier.setText("Score:");
 
-        jLabel2.setText("Score :");
+        jLabel2.setText("Chance limit ");
 
-        lblScore.setText("score");
+        lblScore.setText("Chances left:");
 
         javax.swing.GroupLayout dataPanelLayout = new javax.swing.GroupLayout(dataPanel);
         dataPanel.setLayout(dataPanelLayout);
@@ -113,9 +114,14 @@ private Manager manager;
 
         getContentPane().add(dataPanel, java.awt.BorderLayout.LINE_END);
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jButtona.setText("A");
+        jButtona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonaActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButtona);
 
         jButtonb.setText("B");
@@ -135,11 +141,16 @@ private Manager manager;
         jPanel2.add(jButtonc);
 
         jButtond.setText("D");
+        jButtond.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtondActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButtond);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         txtDisplay.setEditable(false);
         txtDisplay.setColumns(20);
@@ -160,6 +171,14 @@ private Manager manager;
     private void jButtoncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncActionPerformed
          answer('C');
     }//GEN-LAST:event_jButtoncActionPerformed
+
+    private void jButtondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtondActionPerformed
+        answer('D');
+    }//GEN-LAST:event_jButtondActionPerformed
+
+    private void jButtonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonaActionPerformed
+        answer('A');
+    }//GEN-LAST:event_jButtonaActionPerformed
 
     /**
      * @param args the command line arguments

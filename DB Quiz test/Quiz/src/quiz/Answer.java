@@ -22,7 +22,7 @@ public class Answer {
         this.answer = answer;
     }
     
-    //bool used in Question class to check answer this bool is passed to the Answer constructor
+    //bool used to retrive answer from db
     public boolean isCorrect() {
         return correct;
     }
