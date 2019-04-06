@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quiz;
 
 /**
  *
  * @author Grim
  */
+//answer class used for retrieving data with accessors and mutators
 public class Answer {
     private String answer;
     private boolean correct;
@@ -25,7 +21,8 @@ public class Answer {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
+    
+    //bool used in Question class to check answer this bool is passed to the Answer constructor
     public boolean isCorrect() {
         return correct;
     }
@@ -34,9 +31,9 @@ public class Answer {
         this.correct = correct;
     }
 
-    
+    //used for proccessing chars from answer options
     public String toString(char letter) {
-        return letter+": "+answer;
+        return letter + ": " + answer;
     }
     
 }
