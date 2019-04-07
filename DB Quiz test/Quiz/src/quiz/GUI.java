@@ -1,6 +1,12 @@
 package quiz;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -9,14 +15,42 @@ import javax.swing.JOptionPane;
  */
 public class GUI extends javax.swing.JFrame {
 private Manager manager;
+private StorageManager stMan;
+private Question quest;
 
-    public GUI() {
+    public GUI() throws SQLException, ClassNotFoundException {
         try {
             initComponents();
             manager = new Manager("Quiz.accdb"); //passes the name of the db to the manager class
             lblTier.setText(manager.getTier() + ""); // populates the side bar
+            lblChance.setText(manager.getChance() + ""); // populates the side bar
             lblScore.setText(manager.getScore() + ""); // populates the side bar
+            lblAttempt.setText(manager.getAttempt() + ""); // populates the side bar
             txtDisplay.setText(manager.getQuestion()); // populates the main display with the question
+            
+            jTextAnswer.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                   /* try {
+                        String input = jTextAnswer.getText();
+                        System.out.println(input);
+                        String SQL = "SELECT Answer, Correct FROM Answers WHERE QuestionFK="+ quest.getQuestionID()+" AND Correct =" +input;
+                        //selects questions based on tier
+                        ResultSet result = stMan.query(SQL);
+                        
+                    } catch (SQLException ex) {
+                        System.err.println("Class not found exception in GUI constructor " + ex);
+                        
+                    }*/
+                   
+                   String input = jTextAnswer.getText();
+                   char c = input.charAt(0);
+                   try{
+                        answer(c);
+                   }catch(InputMismatchException ex){System.err.println("err in jtext input" + ex);}
+                   //System.out.println(c);
+                }
+            
+            });
             
             
         } catch (ClassNotFoundException ex) {
@@ -31,6 +65,27 @@ private Manager manager;
         }
     }
     
+    public void actionPerformed(ActionEvent e){
+                   /* try {
+                        String input = jTextAnswer.getText();
+                        System.out.println(input);
+                        String SQL = "SELECT Answer, Correct FROM Answers WHERE QuestionFK="+ quest.getQuestionID()+" AND Correct =" +input;
+                        //selects questions based on tier
+                        ResultSet result = stMan.query(SQL);
+                        
+                    } catch (SQLException ex) {
+                        System.err.println("Class not found exception in GUI constructor " + ex);
+                        
+                    }*/
+                   
+                   String input = jTextAnswer.getText();
+                   char c = input.charAt(0);
+                   try{
+                        answer(c);
+                   }catch(InputMismatchException ex){System.err.println("err in jtext input" + ex);}
+                   //System.out.println(c);
+                }
+    
     public void answer(char letter){
     try {
         //calls the answer method from the manager class to check answer
@@ -40,10 +95,13 @@ private Manager manager;
             JOptionPane.showMessageDialog(this, "Answer was correct");
             txtDisplay.setText(manager.getQuestion());
             lblTier.setText(manager.getTier() + "");
+            lblScore.setText(manager.getScore() + ""); // populates the side bar
+            lblAttempt.setText(manager.getAttempt() + ""); // populates the side bar
         }else{
             JOptionPane.showMessageDialog(this, "Answer was wrong");
             txtDisplay.setText(manager.getQuestion());
-            lblScore.setText(manager.getScore() + "");
+            lblChance.setText(manager.getChance() + "");
+            lblAttempt.setText(manager.getAttempt() + ""); // populates the side bar
             
         }
     } catch (SQLException ex) {
@@ -51,6 +109,7 @@ private Manager manager;
         JOptionPane.showMessageDialog(this, "Error in answer " + ex);
     }
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,10 +121,19 @@ private Manager manager;
     private void initComponents() {
 
         dataPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         lblTier = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblChance = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         lblScore = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblAttempt = new javax.swing.JLabel();
+        jTextAnswer = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButtona = new javax.swing.JButton();
         jButtonb = new javax.swing.JButton();
@@ -77,13 +145,36 @@ private Manager manager;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Question Streak");
+        lblTier.setText("question");
 
-        lblTier.setText("Score:");
+        jLabel2.setText("Type Answer");
 
-        jLabel2.setText("Chance limit ");
+        lblChance.setText("chance");
 
-        lblScore.setText("Chances left:");
+        jLabel1.setText("Question num");
+
+        jLabel3.setText("Chances");
+
+        jLabel4.setText("Score:");
+
+        lblScore.setText("points");
+
+        jLabel5.setText("Attempts:");
+
+        lblAttempt.setText("att num");
+
+        jTextAnswer.setToolTipText("Press Enter to Submit");
+        jTextAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextAnswerActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Alternatively");
+
+        jLabel7.setText("below 'A' or 'D'");
+
+        jLabel8.setText("(case sensitive)");
 
         javax.swing.GroupLayout dataPanelLayout = new javax.swing.GroupLayout(dataPanel);
         dataPanel.setLayout(dataPanelLayout);
@@ -92,24 +183,53 @@ private Manager manager;
             .addGroup(dataPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblChance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTier, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
                     .addComponent(lblScore)
+                    .addComponent(jLabel5)
+                    .addComponent(lblAttempt)
+                    .addComponent(jTextAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel2)
-                    .addComponent(lblTier))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dataPanelLayout.setVerticalGroup(
             dataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(lblTier)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblChance)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblScore)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAttempt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblScore)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         getContentPane().add(dataPanel, java.awt.BorderLayout.LINE_END);
@@ -117,6 +237,7 @@ private Manager manager;
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jButtona.setText("A");
+        jButtona.setToolTipText("Option A for above question");
         jButtona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonaActionPerformed(evt);
@@ -125,6 +246,7 @@ private Manager manager;
         jPanel2.add(jButtona);
 
         jButtonb.setText("B");
+        jButtonb.setToolTipText("Option B for above question");
         jButtonb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonbActionPerformed(evt);
@@ -133,6 +255,7 @@ private Manager manager;
         jPanel2.add(jButtonb);
 
         jButtonc.setText("C");
+        jButtonc.setToolTipText("Option C for above question");
         jButtonc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtoncActionPerformed(evt);
@@ -141,6 +264,7 @@ private Manager manager;
         jPanel2.add(jButtonc);
 
         jButtond.setText("D");
+        jButtond.setToolTipText("Option D for above question");
         jButtond.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtondActionPerformed(evt);
@@ -180,6 +304,10 @@ private Manager manager;
         answer('A');
     }//GEN-LAST:event_jButtonaActionPerformed
 
+    private void jTextAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAnswerActionPerformed
+        //do nothing 
+    }//GEN-LAST:event_jTextAnswerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -210,7 +338,13 @@ private Manager manager;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                try {
+                    new GUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -223,9 +357,18 @@ private Manager manager;
     private javax.swing.JButton jButtond;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextAnswer;
+    private javax.swing.JLabel lblAttempt;
+    private javax.swing.JLabel lblChance;
     private javax.swing.JLabel lblScore;
     private javax.swing.JLabel lblTier;
     private javax.swing.JTextArea txtDisplay;

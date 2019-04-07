@@ -34,16 +34,6 @@ private Connection connection;
         int done = stmt.executeUpdate(SQL);
         return done; 
     }
-     //returns the ID of an sql stmt
-    public int updateReturnID(String SQL)throws SQLException{
-        Statement stmt = connection.createStatement();
-        int id=-1;
-        stmt.executeUpdate(SQL, Statement.RETURN_GENERATED_KEYS);
-        ResultSet result = stmt.getGeneratedKeys();
-        if(result.next()){
-            id=result.getInt(1);
-        }
-        return id; 
-    }
+   
     
 }

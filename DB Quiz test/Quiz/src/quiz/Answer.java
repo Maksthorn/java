@@ -23,7 +23,7 @@ public class Answer {
     }
     
     //bool used to retrive answer from db
-    public boolean isCorrect() {
+    public boolean correctAnswer() {
         return correct;
     }
 

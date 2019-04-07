@@ -14,6 +14,10 @@ public class Question {
     private Answer[] answers = new Answer[4]; // array of possible answers a b c d
     private int numAnswers = 0;
 
+    public int getQuestionID() {
+        return questionID;
+    }
+
     public Question(String question ,int questionID ) throws SQLException {
         this.question = question;
         this.questionID = questionID;
@@ -42,11 +46,11 @@ public class Question {
     public String toString() {
         String display = "";
         //letters link to the position of the question in the array
-        String letters = "ABCD";
+        String options = "ABCD";
         //loop through answers array + use numAnswers as a val
         for (int i = 0; i < numAnswers; i++){
             //store data in display for displayed questions at array [i] index
-            display += answers[i].toString(letters.charAt(i)) + "\n";
+            display += answers[i].toString(options.charAt(i)) + "\n";
         }
         //returns question and possible answer
         return question + "\n\n" + display;
@@ -55,11 +59,11 @@ public class Question {
     
     //checking if the answer is correct
     public boolean isCorrect(char letter){
-        String letters = "ABCD";
+        String options = "ABCD";
         //checks answer options 1 by 1 
-        int index = letters.indexOf(letter + "");
+        int index = options.indexOf(letter + "");
         // return correct answer to match from array by going through each one
-        return answers[index].isCorrect();
+        return answers[index].correctAnswer();
     }
     
 }
