@@ -42,8 +42,11 @@ private Question quest;
                         
                     }*/
                    
+                   // takes input from jtext
                    String input = jTextAnswer.getText();
+                   //take character and pass it to answer method
                    char c = input.charAt(0);
+                   
                    try{
                         answer(c);
                    }catch(InputMismatchException ex){System.err.println("err in jtext input" + ex);}
@@ -91,6 +94,7 @@ private Question quest;
         //calls the answer method from the manager class to check answer
         boolean correct = manager.answer(letter);
         
+        //if true
         if(correct){
             JOptionPane.showMessageDialog(this, "Answer was correct");
             txtDisplay.setText(manager.getQuestion());
@@ -287,19 +291,19 @@ private Question quest;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // pass button value  
     private void jButtonbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbActionPerformed
         answer('B');
     }//GEN-LAST:event_jButtonbActionPerformed
-
+    // pass button value  
     private void jButtoncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncActionPerformed
          answer('C');
     }//GEN-LAST:event_jButtoncActionPerformed
-
+    // pass button value  
     private void jButtondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtondActionPerformed
         answer('D');
     }//GEN-LAST:event_jButtondActionPerformed
-
+    // pass button value  
     private void jButtonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonaActionPerformed
         answer('A');
     }//GEN-LAST:event_jButtonaActionPerformed
@@ -341,9 +345,9 @@ private Question quest;
                 try {
                     new GUI().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println("SQLException cought in gui()" +ex);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println("ClassNotFoundException cought in gui()" +ex);
                 }
             }
         });

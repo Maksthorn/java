@@ -9,32 +9,35 @@ import java.sql.SQLException;
  */
 public class Manager {
     private static StorageManager stMan; //allows to be referable without having an instance of it
-    private Question[] questions = new Question[50];
-    private int numQuestions;
+    private Question[] questions = new Question[15];
+    private int questionNum;
     private int tier; //used to go into the next tier of questions
     private int chance;
     private double score;
     private int attempt;
     private Question currentQuestion;
-    
+   
+    //instantiate variables
    public Manager(String db) throws ClassNotFoundException, SQLException{
        stMan = new StorageManager(db);
        tier = 1;
        chance = 4;
        score = 0.0;
        attempt = 1;
-       populateQuestions();
+       addQuestions();
 
    }
     
+   //add question objects to questions array
     public void addQuestions(String question, int questionID) throws SQLException{
-        questions[numQuestions] = new Question(question , questionID );
-        numQuestions++;
+        questions[questionNum] = new Question(question , questionID );
+        questionNum++;
     
     }
     
-    public void populateQuestions() throws SQLException{
-        numQuestions = 0;
+    public void addQuestions() throws SQLException{
+        //reset  
+        questionNum = 0;
         String SQL = "SELECT QuestionID , Question FROM Questions WHERE tier =" + tier;
         //selects questions based on tier 
         ResultSet result = stMan.query(SQL);
@@ -42,7 +45,7 @@ public class Manager {
         while(result.next()){
             int questionID = result.getInt("QuestionID");
             String question = result.getString("Question");   
-            addQuestions(question , questionID);
+            Manager.this.addQuestions(question , questionID);
         }
     }
     
@@ -57,7 +60,7 @@ public class Manager {
     public String getQuestion(){
         //returns random question , - 1 compensates for arrays starting at 0
         //uses the min max range min is 0 max is last element in array - 1
-        currentQuestion = questions[getRandom(0,numQuestions - 1)];
+        currentQuestion = questions[getRandom(0,questionNum - 1)];
         return currentQuestion.toString();
     }
     
@@ -74,6 +77,11 @@ public class Manager {
                  score++;
              }
              
+             if(tier == 12){
+                 System.out.println("you win");
+                 System.exit(0);
+             }
+             
             return true;
         }else{
             //if an answer is wrong lose a chance
@@ -86,9 +94,10 @@ public class Manager {
         }
         
     }
+    
    public void upDifficulty() throws SQLException{
             tier++;
-            populateQuestions();
+            addQuestions();
    }
 
     public int getTier() {

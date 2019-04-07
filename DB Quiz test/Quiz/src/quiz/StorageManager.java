@@ -15,7 +15,7 @@ public class StorageManager {
 private Connection connection;
  
     public StorageManager(String databaseName) throws ClassNotFoundException , SQLException{
- 
+        //creates connection for db , uses UcanaccessDriver
         String driver = "net.ucanaccess.jdbc.UcanaccessDriver"; 
         Class.forName(driver);
         connection = DriverManager.getConnection("jdbc:ucanaccess://" + databaseName);
