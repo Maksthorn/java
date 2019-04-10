@@ -13,6 +13,7 @@ import java.sql.Statement;
 //class used for connecting to database similarly to the lab example
 public class StorageManager {
 private Connection connection;
+//private static String dbURL = "books.accdb";
  
     public StorageManager(String databaseName) throws ClassNotFoundException , SQLException{
         //creates connection for db , uses UcanaccessDriver
