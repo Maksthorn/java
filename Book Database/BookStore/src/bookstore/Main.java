@@ -5,18 +5,32 @@
  */
 package bookstore;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Grim
  */
 public class Main {
-    private static StorageManager stMan; //allows to be referable without having an instance of it
+    Connection connection;
+    String databaseName = "books.accdb";
     
-    public Main(String db) throws ClassNotFoundException, SQLException{
-        stMan = new StorageManager(db);
-    
+    public static Connection connect() {
+        try{
+        String msAccDB = "..//books.accdb";
+        String dbURL = "jdbc:ucanaccess://" + msAccDB; 
+        Connection connection = DriverManager.getConnection(dbURL,"","");
+        return connection;
+        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        return null;
+        }
+        
+       
     }
     
 }

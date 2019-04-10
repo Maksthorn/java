@@ -21,8 +21,10 @@ private Main main;
      * Creates new form Login
      */
     public Login() throws ClassNotFoundException, SQLException {
+        super("Login");
         initComponents();
-        main = new Main("books.accdb");
+        conn = Main.connect();
+       // main = new Main("books.accdb");
           
     }
 
@@ -145,7 +147,8 @@ private Main main;
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(396, 322));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignUpActionPerformed
@@ -176,10 +179,17 @@ private Main main;
     }//GEN-LAST:event_jTextFieldUserNameActionPerformed
 
     private void jButtonReciverpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReciverpassActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        RecoverPass recoverpass = new RecoverPass();
-        recoverpass.setVisible(true);
+        try {
+            // TODO add your handling code here:
+            setVisible(false);
+            RecoverPass recoverpass = new RecoverPass();
+            recoverpass.setVisible(true);
+
+        } catch (ClassNotFoundException ex) {
+            System.err.println(" ClassNotFoundException in Login() class " + ex);    
+        } catch (SQLException ex) {
+            System.err.println(" SQLException in Login() class " + ex);
+        }
     }//GEN-LAST:event_jButtonReciverpassActionPerformed
 
     /**

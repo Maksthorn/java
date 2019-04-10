@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Grim
@@ -30,13 +31,9 @@ private static StorageManager stman;
     public NewAccount() throws ClassNotFoundException, SQLException {
         super("Login");
         initComponents();
-        try {
-            main = new Main("books.accdb");
-        } catch (SQLException ex) {
-            System.err.println("SQLException in NewAccount constructor " + ex);
-        }
-        
-       
+        conn = Main.connect();
+        //main = new Main("books.accdb");
+   
     }
 
     /**
@@ -94,7 +91,7 @@ private static StorageManager stman;
             }
         });
 
-        jComboBoxQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What is the name of your favorite artist ?", "What is the name of your favorite book ?", "What is the your favorite music genre ?", "What is your favorite food ?", " " }));
+        jComboBoxQuestion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What is the name of your favorite artist ?", "What is the name of your favorite book ?", "What is the your favorite music genre ?", "What is your favorite food ?" }));
         jComboBoxQuestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxQuestionActionPerformed(evt);
@@ -233,7 +230,8 @@ private static StorageManager stman;
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(498, 495));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
@@ -241,41 +239,46 @@ private static StorageManager stman;
     }//GEN-LAST:event_jTextFieldNameActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-    try {
-        // TODO add your handling code here:
-        setVisible(false);
-        Login ob = new Login();
-        ob.setVisible(true);
-    } catch (ClassNotFoundException ex) {
-        System.err.println("ClassNotFoundException in login() in newAccount class " + ex);
-    } catch (SQLException ex) {
-        System.err.println("SQLException in login() in newAccount class " + ex);
-    }
+        try {
+            // TODO add your handling code here:
+            setVisible(false);
+            Login ob = new Login();
+            ob.setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            System.err.println("ClassNotFoundException in login() in newAccount class " + ex);
+        } catch (SQLException ex) {
+            System.err.println("SQLException in login() in newAccount class " + ex);
+        }
         
         
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
-    try {
-        // TODO add your handling code here:
-        String sql = "INSERT INTO user (name , userName , email ,phoneNumber ,password , question , answer) values (?,?,?,?,?,?,?)";
-        stmt = conn.prepareStatement(sql);
-        stmt.setString(1, jTextFieldName.getText());
-        stmt.setString(2, jTextFieldUserName.getText());
-        stmt.setString(3, jTextFieldEmail.getText());
-        stmt.setString(4, jTextFieldPhoneNo.getText());
-        stmt.setString(5, jTextFieldPassword.getText());
-        stmt.setString(6, (String) jComboBoxQuestion.getSelectedItem());
-        stmt.setString(7, jTextFieldAnswer.getText());
-        stmt.execute();
-        JOptionPane.showMessageDialog(null, "Account created");
-        result.close(); //closing db connection
-        stmt.close(); // closing db connection
-        
-        
-    } catch (SQLException ex) {
-        System.err.println(" SQLException in CreateButton NewAccount()" + ex);
-    }
+        try {
+            // TODO add your handling code here:
+            //String sql = "SELECT * FROM user";
+            //Main.connect();
+            
+            String sql = "Insert  user (name,userName,email,phoneNumber,password,question,answer) values (?,?,?,?,?,?,?)";
+           // stmt = conn.prepareStatement(sql);
+            stmt.setString(1,jTextFieldName.getText());
+            stmt.setString(2,jTextFieldUserName.getText());
+            stmt.setString(3,jTextFieldEmail.getText());
+            stmt.setString(4,jTextFieldPhoneNo.getText());
+            stmt.setString(5,jTextFieldPassword.getText());
+            stmt.setString(6,(String) jComboBoxQuestion.getSelectedItem());
+            stmt.setString(7,jTextFieldAnswer.getText());
+            stmt.execute();
+            
+            //result.stmt.executeQuery(sql);
+            JOptionPane.showMessageDialog(null, "Account created");
+            //result.close(); //closing db connection
+            //stmt.close(); // closing db connection
+
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
     private void jTextFieldAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnswerActionPerformed
