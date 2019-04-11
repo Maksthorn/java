@@ -149,6 +149,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="jTextFieldQuestion">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="toolTipText" type="java.lang.String" value="Think of something ONLY you should Know"/>
           </Properties>
           <Events>
@@ -162,6 +163,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPassword">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="toolTipText" type="java.lang.String" value="Enter your password"/>
           </Properties>
           <Events>
@@ -201,6 +203,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldName">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="toolTipText" type="java.lang.String" value="enter your name"/>
           </Properties>
           <Events>

@@ -6,6 +6,7 @@
 package bookstore;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +26,8 @@ private ResultSet result;
 private PreparedStatement stmt;
 private Main main;
 private static StorageManager stman;
+
+    
     /**
      * Creates new form NewAccount
      */
@@ -256,11 +259,17 @@ private static StorageManager stman;
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         try {
             // TODO add your handling code here:
-            //String sql = "SELECT * FROM user";
-            //Main.connect();
+  
+            //db settings
+            //String msAccDB = "..//books.accdb";
+            //String dbURL = "jdbc:ucanaccess://" + msAccDB; 
+            //conn = DriverManager.getConnection(dbURL, "", "");   
             
-            String sql = "Insert  user (name,userName,email,phoneNumber,password,question,answer) values (?,?,?,?,?,?,?)";
-           // stmt = conn.prepareStatement(sql);
+            //querry
+            //prepare sql statement
+            String sql = "Insert into user (name,userName,email,phoneNumber,password,question,answer) values (?,?,?,?,?,?,?)"; 
+            stmt = conn.prepareStatement(sql);
+            //pass in data for the stmt
             stmt.setString(1,jTextFieldName.getText());
             stmt.setString(2,jTextFieldUserName.getText());
             stmt.setString(3,jTextFieldEmail.getText());
@@ -268,12 +277,14 @@ private static StorageManager stman;
             stmt.setString(5,jTextFieldPassword.getText());
             stmt.setString(6,(String) jComboBoxQuestion.getSelectedItem());
             stmt.setString(7,jTextFieldAnswer.getText());
-            stmt.execute();
+            //run the statement
+            stmt.executeUpdate();
             
-            //result.stmt.executeQuery(sql);
-            JOptionPane.showMessageDialog(null, "Account created");
+            
+            JOptionPane.showMessageDialog(null, "Account created"); //notification that sql stmt has been run with no errors
+            
             //result.close(); //closing db connection
-            //stmt.close(); // closing db connection
+            stmt.close(); // closing db connection
 
 
         } catch (Exception ex) {

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -167,7 +168,37 @@ private Main main;
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            String sql ="SELECT * FROM user WHERE userName = ? AND password = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, jTextFieldUserName.getText());
+            stmt.setString(2, jTextFieldPassword.getText());
+
+            result = stmt.executeQuery();
+            if(result.next()){
+                result.close();
+                stmt.close();
+
+                setVisible(false);
+                Load load = new Load();
+                load.setVisible(true);
+
+            }else{
+                JOptionPane.showMessageDialog(null,"Wrong user credentials");
+            }
+
+        }catch (SQLException ex) {
+                System.err.println("SQLException  in Login button" + ex);
+            }finally{
+        
+              try{
+                        result.close();
+                        stmt.close();
+                }catch(SQLException ex){System.err.println("SQLException " + ex);}
+                
+            }
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed

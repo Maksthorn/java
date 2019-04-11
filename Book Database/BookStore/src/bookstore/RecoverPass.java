@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,7 +28,57 @@ private Main main;
        // main = new Main("books.accdb");
         
     }
+    
+    public void Search() throws SQLException{
+    
+            String user = jTextFieldUserName.getText();
+            String sql = "SELECT * FROM user WHERE userName = '"+user+"'";
+            //run through the results that match the sql stmt
+            try{    
+                    //run sql stmt
+                    stmt= conn.prepareStatement(sql);
+                    result = stmt.executeQuery();
+                    
+                        if(result.next()){
+                            //take fields that match positions in get string
+                            jTextFieldName.setText(result.getString(1)); // retrive name field
+                            jTextFieldQuestion.setText(result.getString(4)); // retrive question field
+                            //close connection
+                            result.close();
+                            stmt.close();
 
+                        }else{
+                            JOptionPane.showMessageDialog(null, "UserName not found ");
+
+                        }
+                        
+                }catch(SQLException ex){System.err.println("SQLException in Search()" + ex);}
+    }
+    
+    
+    public void RetrivePass(){
+        //String a1 = jTextFieldUserName.getText();
+        String answer = jTextFieldAnswer.getText(); //get data from textfield
+        String sql = "SELECT * FROM user WHERE answer ='"+answer+"'";
+        
+        
+        try{
+            stmt= conn.prepareStatement(sql);
+            result = stmt.executeQuery();
+            
+            if(result.next()){
+                jTextFieldPassword.setText(result.getString(3)); // retrive password field
+                 //close connection
+                result.close();
+                stmt.close();
+            
+            }
+            
+        }catch(SQLException ex){System.err.println("SQLEception in RetrivePass " +ex);}
+        
+    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,6 +107,7 @@ private Main main;
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recover Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 51, 51)), "Recover Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24), new java.awt.Color(255, 51, 51))); // NOI18N
 
+        jTextFieldQuestion.setEditable(false);
         jTextFieldQuestion.setToolTipText("Think of something ONLY you should Know");
         jTextFieldQuestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +117,7 @@ private Main main;
 
         jLabelUserName.setText("UserName :");
 
+        jTextFieldPassword.setEditable(false);
         jTextFieldPassword.setToolTipText("Enter your password");
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +145,7 @@ private Main main;
 
         jLabelPassword.setText("Password :");
 
+        jTextFieldName.setEditable(false);
         jTextFieldName.setToolTipText("enter your name");
         jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,15 +285,30 @@ private Main main;
     }//GEN-LAST:event_jTextFieldPasswordActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+    try {
         // TODO add your handling code here:
+        Search();
+    } catch (SQLException ex) {
+        System.err.println("SQLException in Search button" + ex);   
+        }
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonRetriveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetriveActionPerformed
         // TODO add your handling code here:
+        RetrivePass();
     }//GEN-LAST:event_jButtonRetriveActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+    try {
         // TODO add your handling code here:
+        setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
+    } catch (ClassNotFoundException ex) {
+        System.err.println("ClassNotFoundException in back button in RecoverPass " + ex);
+    } catch (SQLException ex) {
+        System.err.println("SQLException in back button in RecoverPass " + ex);
+    }
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     /**
@@ -277,7 +346,7 @@ private Main main;
                 } catch (ClassNotFoundException ex) {
                     System.err.println(" ClassNotFoundException in RecoverPass class " + ex);
                 } catch (SQLException ex) {
-                    System.err.println(" ClassNotFoundException in RecoverPass class " + ex);
+                    System.err.println(" SQLException in RecoverPass class " + ex);
                 }
             }
         });
