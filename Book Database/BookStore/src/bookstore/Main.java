@@ -19,9 +19,9 @@ public class Main {
     
     public static Connection connect() {
         try{
-        String msAccDB = "..//books.accdb";
+        String msAccDB = "..//books.accdb"; // db name , located a dir above the folder containing this file
         String dbURL = "jdbc:ucanaccess://" + msAccDB; 
-        Connection connection = DriverManager.getConnection(dbURL,"","");
+        Connection connection = DriverManager.getConnection(dbURL,"",""); //db link user + pass are blank
         return connection;
         
         }catch(Exception e){

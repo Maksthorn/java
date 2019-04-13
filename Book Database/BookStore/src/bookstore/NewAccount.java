@@ -28,7 +28,7 @@ private Main main;
      * Creates new form NewAccount
      */
     public NewAccount() throws ClassNotFoundException, SQLException {
-        super("Login");
+        super("New Account");
         initComponents();
         conn = main.connect();
         //main = new Main("books.accdb");

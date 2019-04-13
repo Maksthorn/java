@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +20,7 @@ private Main main;
      * Creates new form RecoverPass
      */
     public RecoverPass() throws ClassNotFoundException, SQLException {
-         super("Forgot Password");
+        super("Forgot Password");
         initComponents();
         conn = Main.connect();
        // main = new Main("books.accdb");
@@ -244,7 +242,7 @@ private Main main;
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPassword)
                     .addComponent(jButtonBack))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,7 +256,7 @@ private Main main;
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(570, 412));
+        setSize(new java.awt.Dimension(570, 428));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
