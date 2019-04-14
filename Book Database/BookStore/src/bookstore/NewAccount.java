@@ -251,13 +251,7 @@ private Main main;
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         try {
             // TODO add your handling code here:
-  
-            //db settings
-            //String msAccDB = "..//books.accdb";
-            //String dbURL = "jdbc:ucanaccess://" + msAccDB; 
-            //conn = DriverManager.getConnection(dbURL, "", "");   
-            
-            //querry
+         //querry
             //prepare sql statement
             String sql = "Insert into user (name,userName,email,phoneNumber,password,question,answer) values (?,?,?,?,?,?,?)"; 
             stmt = conn.prepareStatement(sql);

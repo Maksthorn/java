@@ -43,8 +43,9 @@ private Main main;
         jButtonReturnBook = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        jButtonReservation = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButtonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,14 +96,17 @@ private Main main;
 
         jLabel5.setText("Return Book");
 
-        jButton6.setText("jButton6");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReservation.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\cancel.png")); // NOI18N
+        jButtonReservation.setText("jButton6");
+        jButtonReservation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonReservationActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Exit");
+        jLabel6.setText("Reservation");
+
+        jButtonExit.setText("jButton1");
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
@@ -110,13 +114,6 @@ private Main main;
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel2)
-                        .addGap(95, 95, 95)
-                        .addComponent(jLabel3))
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,47 +125,58 @@ private Main main;
                                 .addComponent(jButtonInventory)
                                 .addGap(41, 41, 41)
                                 .addComponent(jButtonRemove))
+                            .addComponent(jButtonReturnBook)))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1)
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel2)
+                        .addGap(95, 95, 95)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonReservation)
                             .addGroup(jPanelLayout.createSequentialGroup()
-                                .addComponent(jButtonReturnBook)
-                                .addGap(69, 69, 69)
-                                .addComponent(jButton6)))))
-                .addContainerGap(15, Short.MAX_VALUE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel4)
-                .addGap(124, 124, 124)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(62, 62, 62))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(jButtonExit))))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel4)
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel5)
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel6)))
+                .addGap(30, 30, 30))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonInventory)
-                            .addComponent(jButtonRemove, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonAddBook))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonSellBook)
-                            .addComponent(jButtonReturnBook)))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addComponent(jButton6)
-                        .addGap(53, 53, 53)))
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonInventory)
+                    .addComponent(jButtonRemove, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAddBook))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4))
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonSellBook)
+                                    .addComponent(jButtonReturnBook)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonReservation)
+                                .addGap(39, 39, 39))))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -247,10 +255,10 @@ private Main main;
         returnbook.setVisible(true);
     }//GEN-LAST:event_jButtonReturnBookActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservationActionPerformed
         // TODO add your handling code here:
         //nothing yet tbi
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonReservationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,10 +296,11 @@ private Main main;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonAddBook;
+    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInventory;
     private javax.swing.JButton jButtonRemove;
+    private javax.swing.JButton jButtonReservation;
     private javax.swing.JButton jButtonReturnBook;
     private javax.swing.JButton jButtonSellBook;
     private javax.swing.JLabel jLabel1;
