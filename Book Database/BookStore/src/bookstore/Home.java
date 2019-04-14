@@ -45,7 +45,6 @@ private Main main;
         jLabel5 = new javax.swing.JLabel();
         jButtonReservation = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButtonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,8 +105,6 @@ private Main main;
 
         jLabel6.setText("Reservation");
 
-        jButtonExit.setText("jButton1");
-
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
@@ -125,7 +122,9 @@ private Main main;
                                 .addComponent(jButtonInventory)
                                 .addGap(41, 41, 41)
                                 .addComponent(jButtonRemove))
-                            .addComponent(jButtonReturnBook)))
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addComponent(jButtonReturnBook)
+                                .addGap(127, 127, 127))))
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1)
@@ -134,10 +133,7 @@ private Main main;
                         .addGap(95, 95, 95)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonReservation)
-                            .addGroup(jPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                                .addComponent(jButtonExit))))
+                            .addComponent(jLabel3)))
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jLabel4)
@@ -145,7 +141,7 @@ private Main main;
                         .addComponent(jLabel5)
                         .addGap(119, 119, 119)
                         .addComponent(jLabel6)))
-                .addGap(30, 30, 30))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,19 +158,13 @@ private Main main;
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
+                        .addGap(39, 39, 39)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelLayout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonSellBook)
-                                    .addComponent(jButtonReturnBook)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonReservation)
-                                .addGap(39, 39, 39))))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jButtonSellBook)
+                            .addComponent(jButtonReturnBook)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
+                        .addComponent(jButtonReservation)
+                        .addGap(39, 39, 39)))
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanelLayout.createSequentialGroup()
@@ -192,7 +182,7 @@ private Main main;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +287,6 @@ private Main main;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddBook;
-    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInventory;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonReservation;
