@@ -1,16 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookstore;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Grim
  */
 public class ReturnBook extends javax.swing.JFrame {
-
+private Connection conn;
+private ResultSet result;
+private PreparedStatement stmt;
+private Main main;
     /**
      * Creates new form ReturnBook
      */
@@ -27,21 +31,416 @@ public class ReturnBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonSell = new javax.swing.JButton();
+        jButtonUser = new javax.swing.JButton();
+        jButtonCheck = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
+        jTextFieldPrice = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTextFieldAuthor = new javax.swing.JTextField();
+        jTextFieldPublisher = new javax.swing.JTextField();
+        jTextFieldBookName = new javax.swing.JTextField();
+        jTextFieldISBN = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldPhone = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButtonSell.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\buy.png")); // NOI18N
+        jButtonSell.setText("Return book");
+        jButtonSell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSellActionPerformed(evt);
+            }
+        });
+
+        jButtonUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\sellSmall.png")); // NOI18N
+        jButtonUser.setText("Check");
+        jButtonUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUserActionPerformed(evt);
+            }
+        });
+
+        jButtonCheck.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\sellSmall.png")); // NOI18N
+        jButtonCheck.setText("Check");
+        jButtonCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCheckActionPerformed(evt);
+            }
+        });
+
+        jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\back.png")); // NOI18N
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
+        jTextFieldPrice.setEditable(false);
+        jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPriceActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\cash.png")); // NOI18N
+
+        jTextFieldAuthor.setEditable(false);
+        jTextFieldAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAuthorActionPerformed(evt);
+            }
+        });
+
+        jTextFieldPublisher.setEditable(false);
+        jTextFieldPublisher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPublisherActionPerformed(evt);
+            }
+        });
+
+        jTextFieldBookName.setEditable(false);
+        jTextFieldBookName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBookNameActionPerformed(evt);
+            }
+        });
+
+        jTextFieldISBN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldISBNActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Confirm Details");
+
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNameActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Customer Details");
+
+        jLabel6.setText("Name:");
+
+        jTextFieldPhone.setEditable(false);
+        jTextFieldPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPhoneActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Phone:");
+
+        jTextFieldEmail.setEditable(false);
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEmailActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Email:");
+
+        jLabel17.setText("Book Details");
+
+        jLabel1.setText("ISBN:");
+
+        jLabel10.setText("Book Name:");
+
+        jLabel2.setText("Publisher:");
+
+        jLabel3.setText("Author:");
+
+        jLabel4.setText("Price:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(235, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(74, 74, 74))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(8, 8, 8))
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel19))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jTextFieldBookName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonCheck)
+                            .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(94, 94, 94)
+                            .addComponent(jLabel18))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(85, 85, 85)
+                                    .addComponent(jLabel9))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(35, 35, 35)
+                                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButtonSell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonUser, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(5, 5, 5)
+                                                .addComponent(jLabel8))
+                                            .addComponent(jLabel7))
+                                        .addGap(32, 32, 32)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldPhone)))))))
+                    .addContainerGap(322, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldBookName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCheck, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonBack)
+                .addGap(14, 14, 14))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel18)
+                            .addGap(19, 19, 19)
+                            .addComponent(jLabel6))
+                        .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel9)
+                    .addGap(30, 30, 30)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(49, 49, 49)
+                    .addComponent(jButtonUser)
+                    .addGap(18, 18, 18)
+                    .addComponent(jButtonSell, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void SearchBook() throws SQLException{
+    
+            String ISBN = jTextFieldISBN.getText();
+            String sql = "SELECT * FROM book WHERE ISBN = '"+ISBN+"' ";
+            //run through the results that match the sql stmt
+            try{    
+                    //run sql stmt
+                    stmt= conn.prepareStatement(sql);
+                    result = stmt.executeQuery();
+                    
+                        if(result.next()){
+                            //take fields that match positions in get string
+                            jTextFieldBookName.setText(result.getString(2)); // retrive  field
+                            jTextFieldPublisher.setText(result.getString(4)); // retrive  field
+                            jTextFieldAuthor.setText(result.getString(5)); // retrive  field
+                            jTextFieldPrice.setText(result.getString(8)); // retrive  field
+                            //close connection
+                            result.close();
+                            stmt.close();
+
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Book not found");
+
+                        }
+                        
+                }catch(SQLException ex){System.err.println("SQLException in SearchBook()" + ex);}
+    }
+    
+    private void SearchUser() throws SQLException{
+    
+            String name = jTextFieldName.getText();
+            String sql = "SELECT * FROM user WHERE name = '"+name+"'";
+            //run through the results that match the sql stmt
+            try{    
+                    //run sql stmt
+                    stmt= conn.prepareStatement(sql);
+                    result = stmt.executeQuery();
+                    
+                        if(result.next()){
+                            //take fields that match positions in get string
+                            jTextFieldPhone.setText(result.getString(4)); // retrive  field
+                            jTextFieldEmail.setText(result.getString(3)); // retrive  field
+                          
+                            //close connection
+                            result.close();
+                            stmt.close();
+
+                        }else{
+                            JOptionPane.showMessageDialog(null, "User not found");
+
+                        }
+                        
+                }catch(SQLException ex){System.err.println("SQLException in SearchUser()" + ex);}
+    }
+    
+    private void Return(){
+       
+            String sql = "INSERT INTO books_returned (phone , email , name , bookName , publisher ,author, price) values(?,?,?,?,?,?,?)";
+            //run through the results that match the sql stmt
+            try{    
+                //run sql stmt
+                stmt= conn.prepareStatement(sql);
+                
+
+                //take fields that match positions in get string
+                stmt.setString(1,jTextFieldPhone.getText());       
+                stmt.setString(2,jTextFieldEmail.getText()); //check later
+                stmt.setString(3,jTextFieldName.getText());
+                stmt.setString(4,jTextFieldBookName.getText());
+                stmt.setString(5,jTextFieldPublisher.getText());
+                stmt.setString(6,jTextFieldAuthor.getText());
+                stmt.setString(7,jTextFieldPrice.getText());
+                
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Item has been returned ,Please take customers receipt");
+                //close connection
+                result.close();
+                stmt.close();
+                       
+                }catch(SQLException ex){System.err.println("SQLException in Sell()" + ex);}
+    }
+    
+    private void jButtonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellActionPerformed
+        // TODO add your handling code here:
+        Return();
+    }//GEN-LAST:event_jButtonSellActionPerformed
+
+    private void jButtonUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserActionPerformed
+        try {
+            // TODO add your handling code here:
+            SearchUser();
+        } catch (SQLException ex) {
+            System.err.println("SQLException in check user " + ex);
+        }
+    }//GEN-LAST:event_jButtonUserActionPerformed
+
+    private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckActionPerformed
+        try {
+            // TODO add your handling code here:
+            SearchBook();
+        } catch (SQLException ex) {
+            System.err.println("SQLException in check() " +ex);
+        }
+    }//GEN-LAST:event_jButtonCheckActionPerformed
+
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Home home = new Home();
+        home.setVisible(true);
+
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
+    private void jTextFieldPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPriceActionPerformed
+
+    private void jTextFieldAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAuthorActionPerformed
+
+    private void jTextFieldPublisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPublisherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPublisherActionPerformed
+
+    private void jTextFieldBookNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBookNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBookNameActionPerformed
+
+    private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldISBNActionPerformed
+
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
+
+    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPhoneActionPerformed
+
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +478,29 @@ public class ReturnBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBack;
+    private javax.swing.JButton jButtonCheck;
+    private javax.swing.JButton jButtonSell;
+    private javax.swing.JButton jButtonUser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextFieldAuthor;
+    private javax.swing.JTextField jTextFieldBookName;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldISBN;
+    private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldPhone;
+    private javax.swing.JTextField jTextFieldPrice;
+    private javax.swing.JTextField jTextFieldPublisher;
     // End of variables declaration//GEN-END:variables
 }

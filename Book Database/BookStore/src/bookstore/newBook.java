@@ -209,7 +209,7 @@ private Main main;
 
             //querry
             //prepare sql statement
-            String sql = "Insert into book (book_title,published_date,publisher,author,category,pages,price) values (?,?,?,?,?,?,?)";
+            String sql = "Insert into book (bookTitle,publishedDate,publisher,author,category,pages,price) values (?,?,?,?,?,?,?)";
             stmt = conn.prepareStatement(sql);
             //pass in data for the stmt
             stmt.setString(1,jTextFieldTitle.getText());       
