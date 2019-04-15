@@ -14,12 +14,15 @@ public class ReturnBook extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
 private PreparedStatement stmt;
-private Main main;
+private ConnectionManager conman;
     /**
      * Creates new form ReturnBook
      */
     public ReturnBook() {
+        super("RemoveUser");
         initComponents();
+        conn = ConnectionManager.connect();
+        setTitle("ReturnBook");
     }
 
     /**
@@ -176,9 +179,6 @@ private Main main;
                 .addContainerGap(235, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(74, 74, 74))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel10)
@@ -200,7 +200,10 @@ private Main main;
                                 .addComponent(jTextFieldAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButtonCheck)
                             .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48))))
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(121, 121, 121))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -209,28 +212,26 @@ private Main main;
                             .addGap(94, 94, 94)
                             .addComponent(jLabel18))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(85, 85, 85)
-                                    .addComponent(jLabel9))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(35, 35, 35)
-                                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButtonSell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButtonUser, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(85, 85, 85)
+                            .addComponent(jLabel9))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(35, 35, 35)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonSell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonUser, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(5, 5, 5)
-                                                .addComponent(jLabel8))
-                                            .addComponent(jLabel7))
-                                        .addGap(32, 32, 32)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldPhone)))))))
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jLabel8))
+                                    .addComponent(jLabel7))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldPhone)))))
                     .addContainerGap(322, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -295,7 +296,8 @@ private Main main;
                     .addContainerGap()))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(564, 382));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     private void SearchBook() throws SQLException{
     

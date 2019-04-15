@@ -7,13 +7,16 @@ package bookstore;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Grim
  */
-public class Main {
+public class ConnectionManager {
     Connection connection;
     String databaseName = "books.accdb";
     
@@ -30,6 +33,19 @@ public class Main {
         }
         
        
+    }
+    
+     //sql queries handlers 
+    public ResultSet query(String SQL)throws SQLException{
+        Statement stmt = connection.createStatement();
+        ResultSet result = stmt.executeQuery(SQL);
+        return result; 
+    }
+    
+    public int update (String SQL)throws SQLException{
+        Statement stmt = connection.createStatement();
+        int done = stmt.executeUpdate(SQL);
+        return done; 
     }
     
 }

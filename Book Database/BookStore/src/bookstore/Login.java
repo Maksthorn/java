@@ -15,14 +15,15 @@ public class Login extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
 private PreparedStatement stmt;
-private Main main;
+private ConnectionManager conman;
     /**
      * Creates new form Login
      */
     public Login() throws ClassNotFoundException, SQLException {
         super("Login");
         initComponents();
-        conn = main.connect();
+        conn = conman.connect();
+        setTitle("Login");
        // main = new Main("books.accdb");
           
     }

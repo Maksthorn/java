@@ -1,25 +1,17 @@
 package bookstore;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 /**
  *
  * @author Grim
  */
 public class Home extends javax.swing.JFrame {
-private Connection conn;
-private ResultSet result;
-private PreparedStatement stmt;
-private Main main;
+
     /**
      * Creates new form Home
      */
     public Home() {
-        
         initComponents();
-        
+        setTitle("Home");
     }
 
     /**
@@ -73,7 +65,7 @@ private Main main;
 
         jLabel1.setText("Add New Book");
 
-        jLabel2.setText("Inventory");
+        jLabel2.setText("Inventory and Database");
 
         jLabel3.setText("Remove Customer");
 
@@ -102,7 +94,7 @@ private Main main;
             }
         });
 
-        jLabel6.setText("Reservation");
+        jLabel6.setText("Update Reservation");
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
@@ -111,34 +103,39 @@ private Main main;
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonSellBook)
-                            .addComponent(jButtonAddBook))
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonSellBook)
+                                    .addComponent(jButtonAddBook)))
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel1)))
                         .addGap(50, 50, 50)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonInventory)
-                            .addComponent(jButtonReturnBook))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonReservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(54, 54, 54)
+                                .addComponent(jLabel3))
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonInventory)
+                                    .addComponent(jButtonReturnBook))
+                                .addGap(41, 41, 41)
+                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel6))
+                                    .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButtonRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonReservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel2)
-                        .addGap(95, 95, 95)
-                        .addComponent(jLabel3)))
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel4)
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel5)))
                 .addContainerGap(50, Short.MAX_VALUE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel4)
-                .addGap(124, 124, 124)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(76, 76, 76))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,8 +148,9 @@ private Main main;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)))
                 .addGap(39, 39, 39)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonSellBook)

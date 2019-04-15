@@ -20,7 +20,7 @@ public class NewAccount extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
 private PreparedStatement stmt;
-private Main main;
+private ConnectionManager conman;
 
 
     
@@ -30,7 +30,7 @@ private Main main;
     public NewAccount() throws ClassNotFoundException, SQLException {
         super("New Account");
         initComponents();
-        conn = main.connect();
+        conn = conman.connect();
         //main = new Main("books.accdb");
    
     }
@@ -170,7 +170,7 @@ private Main main;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jButtonCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99)
+                        .addGap(81, 81, 81)
                         .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -236,7 +236,8 @@ private Main main;
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
         try {
             // TODO add your handling code here:
-            setVisible(false);
+            
+            setVisible(false); 
             Login ob = new Login();
             ob.setVisible(true);
         } catch (ClassNotFoundException ex) {

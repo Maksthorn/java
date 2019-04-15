@@ -15,14 +15,14 @@ public class RecoverPass extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
 private PreparedStatement stmt;
-private Main main;
+private ConnectionManager conman;
     /**
      * Creates new form RecoverPass
      */
     public RecoverPass() throws ClassNotFoundException, SQLException {
         super("Forgot Password");
         initComponents();
-        conn = Main.connect();
+        conn = ConnectionManager.connect();
        // main = new Main("books.accdb");
         
     }

@@ -19,14 +19,14 @@ public class RemoveUser extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
 private PreparedStatement stmt;
-private Main main;
+private ConnectionManager conman;
     /**
      * Creates new form RemoveUser
      */
     public RemoveUser() {
         super("RemoveUser");
         initComponents();
-        conn = Main.connect();
+        conn = ConnectionManager.connect();
     }
      public void Search() throws SQLException{
     
@@ -273,16 +273,10 @@ private Main main;
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        try {
-            // TODO add your handling code here:
-            setVisible(false);
-            Login login = new Login();
-            login.setVisible(true);
-        } catch (ClassNotFoundException ex) {
-            System.err.println("ClassNotFoundException in back button in RemoveUser " + ex);
-        } catch (SQLException ex) {
-            System.err.println("SQLException in back button in RemoveUser " + ex);
-        }
+        // TODO add your handling code here:
+        setVisible(false);
+        Home home = new Home();
+        home.setVisible(true);
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     /**

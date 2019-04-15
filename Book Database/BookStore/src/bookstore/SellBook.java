@@ -16,14 +16,14 @@ public class SellBook extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
 private PreparedStatement stmt;
-private Main main;
+private ConnectionManager conman;
     /**
      * Creates new form SellBook
      */
     public SellBook() {
         super("Sell Book");
         initComponents();
-        conn = main.connect();
+        conn = conman.connect();
     }
 
     /**
