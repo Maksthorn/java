@@ -28,8 +28,8 @@ private ConnectionManager conman;
      * Creates new form NewAccount
      */
     public NewAccount() throws ClassNotFoundException, SQLException {
-        super("New Account");
-        initComponents();
+         
+        initComponents(); //created to initialise components 
         conn = conman.connect();
         //main = new Main("books.accdb");
    
@@ -254,7 +254,7 @@ private ConnectionManager conman;
             // TODO add your handling code here:
          //querry
             //prepare sql statement
-            String sql = "Insert into user (name,userName,email,phoneNumber,password,question,answer) values (?,?,?,?,?,?,?)"; 
+            String sql = "INSERT INTO user (name,userName,email,phoneNumber,password,question,answer) values (?,?,?,?,?,?,?)"; 
             stmt = conn.prepareStatement(sql);
             //pass in data for the stmt
             stmt.setString(1,jTextFieldName.getText());
@@ -262,9 +262,10 @@ private ConnectionManager conman;
             stmt.setString(3,jTextFieldEmail.getText());
             stmt.setString(4,jTextFieldPhoneNo.getText());
             stmt.setString(5,jTextFieldPassword.getText());
-            stmt.setString(6,(String) jComboBoxQuestion.getSelectedItem());
+            stmt.setString(6,(String) jComboBoxQuestion.getSelectedItem()); // casting to a string
             stmt.setString(7,jTextFieldAnswer.getText());
             //run the statement
+             //executeUpdate executes stmts that insert update or delete data only
             stmt.executeUpdate();
             
             

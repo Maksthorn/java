@@ -22,7 +22,7 @@ private ConnectionManager conman;
      * Creates new form Reservation
      */
     public Reservation() {
-        super("Reservation"); //calls the super of  the Inventory const which is itself
+        
         initComponents();
         conn = conman.connect();
         setTitle("Reservation");
@@ -36,8 +36,9 @@ private ConnectionManager conman;
             stmt = conn.prepareStatement(sql);
             result = stmt.executeQuery();
             jTableReservation.setModel(DbUtils.resultSetToTableModel(result));
-            //result.close(); //closing db connection
-            //stmt.close(); // closing db connection
+            
+            result.close(); //closing db connection
+            stmt.close(); // closing db connection
             
         }catch(SQLException ex){System.err.println("SQLException in items table " + ex);}
     
@@ -151,7 +152,6 @@ private ConnectionManager conman;
                                 .addComponent(jTextFieldBookName)
                                 .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonBack)
                         .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -225,7 +225,8 @@ private ConnectionManager conman;
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1142, 371));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldBookNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBookNameActionPerformed
@@ -258,15 +259,15 @@ private ConnectionManager conman;
     private void Claim(){
         String user = jTextFieldName.getText();
         String book = jTextFieldBookName.getText(); //get data from textfield
-        String email = jTextFieldEmail.getText(); //get data from textfield
-        String phone = jTextFieldPhone.getText(); //get data from textfield
+        //String email = jTextFieldEmail.getText(); //get data from textfield
+        //String phone = jTextFieldPhone.getText(); //get data from textfield
         
-        String sql = "DELETE * FROM reservations WHERE name ='"+user+"' AND bookName ='"+book+"'";
+        String sql = "DELETE * FROM reservations WHERE name ='"+user+"' AND bookName ='"+book+"'"; 
  
         try{
-            stmt= conn.prepareStatement(sql);
-            stmt.executeQuery();
-            result.close();
+            stmt = conn.prepareStatement(sql);
+            stmt.executeUpdate();
+           
             stmt.close();
             JOptionPane.showMessageDialog(null, "Reservation has been updated");
  
@@ -296,7 +297,7 @@ private ConnectionManager conman;
                         if(result.next()){
                             //take fields that match positions in get string
                             jTextFieldEmail.setText(result.getString(3)); // retrive  field
-                            jTextFieldPhone.setText(result.getString(4)); // retrive  field
+                            jTextFieldPhone.setText(result.getString(5)); // retrive  field
                             
                             //close connection
                             result.close();

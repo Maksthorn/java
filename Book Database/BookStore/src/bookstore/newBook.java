@@ -12,15 +12,15 @@ import javax.swing.JOptionPane;
 public class NewBook extends javax.swing.JFrame {
 private Connection conn;
 private ResultSet result;
-private PreparedStatement stmt;
+private PreparedStatement stmt; // a prepared statement or parameterized statement is a feature used to execute the same or similar database statements repeatedly with high efficiency
 private ConnectionManager conman;
     /**
      * Creates new form NewBook
      */
     public NewBook() {
-        super("New Book");
-        initComponents();
-        conn = conman.connect();
+        setTitle("New Book");
+        initComponents();//created to initialise components 
+        conn = conman.connect(); //creates connection from Connection Manager
 
     }
 
@@ -87,6 +87,7 @@ private ConnectionManager conman;
 
         jButtonAdd.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\new.png")); // NOI18N
         jButtonAdd.setText("Add");
+        jButtonAdd.setPreferredSize(new java.awt.Dimension(83, 36));
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddActionPerformed(evt);
@@ -125,11 +126,11 @@ private ConnectionManager conman;
                     .addComponent(dateChooserCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldPrice))
                 .addContainerGap(76, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonBack)
+                .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,12 +164,10 @@ private ConnectionManager conman;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonBack)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(2, 2, 2)))
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
 
@@ -197,7 +196,8 @@ private ConnectionManager conman;
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
+        //turns off the current frame and creates a new instance of Home and sets it to Visible with a bool
+        setVisible(false); 
         Home home = new Home();
         home.setVisible(true);
     }//GEN-LAST:event_jButtonBackActionPerformed
@@ -214,10 +214,12 @@ private ConnectionManager conman;
             //querry
             //prepare sql statement
             String sql = "Insert into book (bookTitle,publishedDate,publisher,author,category,pages,price) values (?,?,?,?,?,?,?)";
+            
+            //
             stmt = conn.prepareStatement(sql);
             //pass in data for the stmt
             stmt.setString(1,jTextFieldTitle.getText());       
-            stmt.setString(2,dateChooserCombo.getText().toString()); //check later
+            stmt.setString(2,dateChooserCombo.getText()); 
             stmt.setString(3,jTextFieldPublisher.getText());
             stmt.setString(4,jTextFieldAuthor.getText());
             stmt.setString(5,(String) jComboBoxCategory.getSelectedItem());
@@ -225,11 +227,12 @@ private ConnectionManager conman;
             stmt.setString(7,jTextFieldPrice.getText());
             
             //run the statement
+            //executeUpdate executes stmts that insert update or delete data only
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Book added"); //notification that sql stmt has been run with no errors
 
-            result.close(); //closing db connection
+            //result.close(); //closing db connection
             stmt.close(); // closing db connection
 
         } catch (Exception ex) {

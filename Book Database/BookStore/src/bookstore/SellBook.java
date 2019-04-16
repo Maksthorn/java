@@ -21,7 +21,7 @@ private ConnectionManager conman;
      * Creates new form SellBook
      */
     public SellBook() {
-        super("Sell Book");
+        setTitle("Sell book");
         initComponents();
         conn = conman.connect();
     }
@@ -192,6 +192,7 @@ private ConnectionManager conman;
 
         jButtonSell.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\buy.png")); // NOI18N
         jButtonSell.setText("Sell");
+        jButtonSell.setPreferredSize(new java.awt.Dimension(90, 36));
         jButtonSell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSellActionPerformed(evt);
@@ -200,6 +201,7 @@ private ConnectionManager conman;
 
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\back.png")); // NOI18N
         jButtonBack.setText("Back");
+        jButtonBack.setPreferredSize(new java.awt.Dimension(90, 36));
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBackActionPerformed(evt);
@@ -352,7 +354,7 @@ private ConnectionManager conman;
                                     .addComponent(jLabel19)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonCheck))))
                 .addGap(433, 433, 433))
@@ -414,7 +416,7 @@ private ConnectionManager conman;
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSell, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBack))
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -456,7 +458,7 @@ private ConnectionManager conman;
         
             String sql = "INSERT INTO reservations (bookName , name , email , phone) values(?,?,?,?)";
             //run through the results that match the sql stmt
-            stmt= conn.prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1,jTextFieldRbookName.getText());
             stmt.setString(2,jTextFieldRName.getText());
             stmt.setString(3,jTextFieldRemail.getText());
@@ -465,7 +467,7 @@ private ConnectionManager conman;
             stmt.executeUpdate();
             //close connection
             JOptionPane.showMessageDialog(null, "Book Reservation Created"); //notification that sql stmt has been run with no errors
-            result.close();
+            //result.close();
             stmt.close();
         }catch(SQLException ex){System.err.println("SQLException in Reserve butoon" + ex);}
     }
@@ -478,7 +480,8 @@ private ConnectionManager conman;
             //run through the results that match the sql stmt
             try{    
                     //run sql stmt
-                    stmt= conn.prepareStatement(sql);
+                    stmt = conn.prepareStatement(sql);
+                    //executeQuery returns a resultset that has to be sotred in order to be used 
                     result = stmt.executeQuery();
                     
                         if(result.next()){
@@ -507,6 +510,7 @@ private ConnectionManager conman;
             try{    
                     //run sql stmt
                     stmt= conn.prepareStatement(sql);
+                     //executeQuery returns a resultset that has to be sotred in order to be used 
                     result = stmt.executeQuery();
                     
                         if(result.next()){
@@ -592,7 +596,7 @@ private ConnectionManager conman;
                 stmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Transaction complete ,Please take your receipt");
                 //close connection
-                result.close();
+                //result.close();
                 stmt.close();
                        
                 }catch(SQLException ex){System.err.println("SQLException in Sell()" + ex);}

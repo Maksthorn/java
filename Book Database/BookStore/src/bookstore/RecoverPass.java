@@ -20,7 +20,7 @@ private ConnectionManager conman;
      * Creates new form RecoverPass
      */
     public RecoverPass() throws ClassNotFoundException, SQLException {
-        super("Forgot Password");
+         
         initComponents();
         conn = ConnectionManager.connect();
        // main = new Main("books.accdb");

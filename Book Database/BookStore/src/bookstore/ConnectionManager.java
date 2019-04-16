@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Grim
  */
+//class creates reusable connection for all other classes
 public class ConnectionManager {
     Connection connection;
     String databaseName = "books.accdb";

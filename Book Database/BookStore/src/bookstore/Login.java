@@ -20,7 +20,7 @@ private ConnectionManager conman;
      * Creates new form Login
      */
     public Login() throws ClassNotFoundException, SQLException {
-        super("Login");
+        
         initComponents();
         conn = conman.connect();
         setTitle("Login");
@@ -176,7 +176,7 @@ private ConnectionManager conman;
             String sql ="SELECT * FROM user WHERE userName = ? AND password = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, jTextFieldUserName.getText());
-            stmt.setString(2, jTextFieldPassword.getText());
+            stmt.setString(2, jTextFieldPassword.getText());// get password can be used , but i didnt want to change the datatype to char 
 
             result = stmt.executeQuery();
             if(result.next()){

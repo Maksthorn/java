@@ -24,9 +24,9 @@ private ConnectionManager conman;
      * Creates new form RemoveUser
      */
     public RemoveUser() {
-        super("RemoveUser");
+        setTitle("Remove user");
         initComponents();
-        conn = ConnectionManager.connect();
+        conn = conman.connect();
     }
      public void Search() throws SQLException{
     
@@ -48,6 +48,8 @@ private ConnectionManager conman;
 
                         }else{
                             JOptionPane.showMessageDialog(null, "UserName not found ");
+                            result.close();
+                            stmt.close();
 
                         }
                         

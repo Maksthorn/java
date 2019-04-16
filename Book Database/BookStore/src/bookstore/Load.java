@@ -10,7 +10,7 @@ public class Load extends javax.swing.JFrame implements Runnable{
     int seconds = 0; //sets default
 
     public Load() {
-        super("Load");
+        
         initComponents();
         setTitle("Loading");
         thread = new Thread((Runnable)this); // creates a new thread in the constructor

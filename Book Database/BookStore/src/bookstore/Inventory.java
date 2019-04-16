@@ -19,8 +19,8 @@ private ConnectionManager conman;
      * Creates new form Inventory
      */
     public Inventory() {
-        super("Inventory"); //calls the super of  the Inventory const which is itself
-        initComponents();
+         
+        initComponents();//created to initialise components 
         conn = conman.connect();
         jTableBooks();
         jTableItems();
