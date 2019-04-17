@@ -68,7 +68,7 @@ private ConnectionManager conman;
             stmt.executeUpdate();
             result.close();
             stmt.close();
-            JOptionPane.showMessageDialog(null, "user with credentials of "+user+" and "+name+" "+" has been deleted");
+            JOptionPane.showMessageDialog(null, "user with credentials of "+user+" and "+name+" "+" have been deleted");
  
         }catch(SQLException ex){System.err.println("SQLEception in DeleteUser " +ex);}
         

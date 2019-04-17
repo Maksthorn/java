@@ -20,7 +20,7 @@ private ConnectionManager conman;
      * Creates new form RecoverPass
      */
     public RecoverPass() throws ClassNotFoundException, SQLException {
-         
+        setTitle("Recover Password");
         initComponents();
         conn = ConnectionManager.connect();
        // main = new Main("books.accdb");
@@ -40,7 +40,7 @@ private ConnectionManager conman;
                         if(result.next()){
                             //take fields that match positions in get string
                             jTextFieldName.setText(result.getString(1)); // retrive name field
-                            jTextFieldQuestion.setText(result.getString(4)); // retrive question field
+                            jTextFieldQuestion.setText(result.getString(6)); // retrive question field
                             //close connection
                             result.close();
                             stmt.close();

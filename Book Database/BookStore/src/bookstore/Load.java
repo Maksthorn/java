@@ -31,9 +31,9 @@ public class Load extends javax.swing.JFrame implements Runnable{
                 int current = jProgressBar.getValue();
                 
                     if(current < max){
-                        jProgressBar.setValue(jProgressBar.getValue() + 2);
+                        jProgressBar.setValue(jProgressBar.getValue() + 2); // adds 2  to the current value
                     }else{
-                        i = 201;
+                        i = 101;
                         setVisible(false);
                         Home home = new Home();
                         home.setVisible(true);
