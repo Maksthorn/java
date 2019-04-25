@@ -87,7 +87,7 @@ private ConnectionManager conman;
             }
         });
 
-        jButtonBack.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonBack.setForeground(new java.awt.Color(153, 153, 153));
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\back.png")); // NOI18N
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ private ConnectionManager conman;
             }
         });
 
-        jButtonCreate.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCreate.setForeground(new java.awt.Color(153, 153, 153));
         jButtonCreate.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\new.png")); // NOI18N
         jButtonCreate.setText("Create");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {

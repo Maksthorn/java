@@ -37,6 +37,7 @@ private ConnectionManager conman;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jTextFieldRName = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -76,9 +77,12 @@ private ConnectionManager conman;
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
         setResizable(false);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Reservation Details"));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
         jTextFieldRName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,8 +90,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel11.setForeground(new java.awt.Color(102, 102, 255));
         jLabel11.setText("Book Name:");
 
+        jLabel13.setForeground(new java.awt.Color(102, 102, 255));
         jLabel13.setText("Email:");
 
         jTextFieldRemail.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +102,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel14.setForeground(new java.awt.Color(102, 102, 255));
         jLabel14.setText("Phone No:");
 
         jTextFieldRbookName.addActionListener(new java.awt.event.ActionListener() {
@@ -110,8 +117,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel12.setForeground(new java.awt.Color(102, 102, 255));
         jLabel12.setText("Name:");
 
+        jButtonReserve.setForeground(new java.awt.Color(153, 153, 153));
         jButtonReserve.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\order.png")); // NOI18N
         jButtonReserve.setText("Reserve");
         jButtonReserve.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +129,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel15.setForeground(new java.awt.Color(102, 102, 255));
         jLabel15.setText("Book Details");
 
+        jLabel16.setForeground(new java.awt.Color(102, 102, 255));
         jLabel16.setText("Customer Details");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -140,7 +151,7 @@ private ConnectionManager conman;
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel15)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -192,6 +203,9 @@ private ConnectionManager conman;
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+
+        jButtonSell.setForeground(new java.awt.Color(153, 153, 153));
         jButtonSell.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\buy.png")); // NOI18N
         jButtonSell.setText("Sell");
         jButtonSell.setPreferredSize(new java.awt.Dimension(90, 36));
@@ -201,6 +215,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonBack.setForeground(new java.awt.Color(153, 153, 153));
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\back.png")); // NOI18N
         jButtonBack.setText("Back");
         jButtonBack.setPreferredSize(new java.awt.Dimension(90, 36));
@@ -216,8 +231,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel6.setForeground(new java.awt.Color(102, 102, 255));
         jLabel6.setText("Name:");
 
+        jLabel9.setForeground(new java.awt.Color(102, 102, 255));
         jLabel9.setText("Confirm Details");
 
         jTextFieldPhone.setEditable(false);
@@ -234,10 +251,13 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel7.setForeground(new java.awt.Color(102, 102, 255));
         jLabel7.setText("Phone:");
 
+        jLabel8.setForeground(new java.awt.Color(102, 102, 255));
         jLabel8.setText("Email:");
 
+        jButtonUser.setForeground(new java.awt.Color(153, 153, 153));
         jButtonUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\sellSmall.png")); // NOI18N
         jButtonUser.setText("Check");
         jButtonUser.addActionListener(new java.awt.event.ActionListener() {
@@ -246,6 +266,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("ISBN:");
 
         jTextFieldISBN.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +275,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel10.setForeground(new java.awt.Color(102, 102, 255));
         jLabel10.setText("Book Name:");
 
         jTextFieldBookName.setEditable(false);
@@ -263,6 +285,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
         jLabel2.setText("Publisher:");
 
         jTextFieldPublisher.setEditable(false);
@@ -272,6 +295,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(102, 102, 255));
         jLabel3.setText("Author:");
 
         jTextFieldAuthor.setEditable(false);
@@ -281,6 +305,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Price:");
 
         jTextFieldPrice.setEditable(false);
@@ -290,6 +315,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonCheck.setForeground(new java.awt.Color(153, 153, 153));
         jButtonCheck.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\sellSmall.png")); // NOI18N
         jButtonCheck.setText("Check");
         jButtonCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -298,8 +324,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel17.setForeground(new java.awt.Color(102, 102, 255));
         jLabel17.setText("Book Details");
 
+        jLabel18.setForeground(new java.awt.Color(102, 102, 255));
         jLabel18.setText("Customer Details");
 
         jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\cash.png")); // NOI18N
@@ -419,7 +447,31 @@ private ConnectionManager conman;
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSell, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -427,23 +479,17 @@ private ConnectionManager conman;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(634, 699));
+        setSize(new java.awt.Dimension(724, 757));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -697,6 +743,7 @@ private ConnectionManager conman;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextFieldAuthor;

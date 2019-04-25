@@ -1,5 +1,6 @@
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +26,7 @@ private ConnectionManager conman;
         jTableBooks();
         jTableItems();
         jTableUsers();
+        setIcon();
         setTitle("Inventory");
     }
     
@@ -90,6 +92,7 @@ private ConnectionManager conman;
         jButtonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 51));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inventory", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(153, 255, 255))); // NOI18N
 
@@ -279,4 +282,8 @@ private ConnectionManager conman;
     private javax.swing.JTable jTableItems;
     private javax.swing.JTable jTableUsers;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }
