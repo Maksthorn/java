@@ -1,6 +1,7 @@
 
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +23,7 @@ private ConnectionManager conman;
     public RecoverPass() throws ClassNotFoundException, SQLException {
         setTitle("Recover Password");
         initComponents();
+        setIcon();
         conn = ConnectionManager.connect();
        // main = new Main("books.accdb");
         
@@ -105,6 +107,7 @@ private ConnectionManager conman;
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recover Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 51, 51)), "Recover Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24), new java.awt.Color(255, 51, 51))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(102, 102, 255));
 
         jTextFieldQuestion.setEditable(false);
         jTextFieldQuestion.setToolTipText("Think of something ONLY you should Know");
@@ -114,6 +117,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelUserName.setForeground(new java.awt.Color(102, 102, 255));
         jLabelUserName.setText("UserName :");
 
         jTextFieldPassword.setEditable(false);
@@ -131,6 +135,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelAnswer.setForeground(new java.awt.Color(102, 102, 255));
         jLabelAnswer.setText("Answer :");
 
         jTextFieldUserName.setToolTipText("enter user name");
@@ -140,8 +145,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelName.setForeground(new java.awt.Color(102, 102, 255));
         jLabelName.setText("Name:");
 
+        jLabelPassword.setForeground(new java.awt.Color(102, 102, 255));
         jLabelPassword.setText("Password :");
 
         jTextFieldName.setEditable(false);
@@ -152,6 +159,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonSearch.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\search.png")); // NOI18N
         jButtonSearch.setText("Search");
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +168,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonRetrive.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRetrive.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\validate.png")); // NOI18N
         jButtonRetrive.setText("Validate");
         jButtonRetrive.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +177,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonBack.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\return.png")); // NOI18N
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +186,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelSecurityQuestion.setForeground(new java.awt.Color(102, 102, 255));
         jLabelSecurityQuestion.setText("Your Security Question :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -364,4 +375,8 @@ private ConnectionManager conman;
     private javax.swing.JTextField jTextFieldQuestion;
     private javax.swing.JTextField jTextFieldUserName;
     // End of variables declaration//GEN-END:variables
+
+     private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }

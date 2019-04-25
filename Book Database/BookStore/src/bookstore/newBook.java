@@ -1,5 +1,6 @@
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ private ConnectionManager conman;
      */
     public NewBook() {
         setTitle("New Book");
+        setIcon();
         initComponents();//created to initialise components 
         conn = conman.connect(); //creates connection from Connection Manager
 
@@ -58,14 +60,18 @@ private ConnectionManager conman;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
         jTextFieldTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTitleActionPerformed(evt);
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("Title:");
 
+        jButtonBack.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\back.png")); // NOI18N
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -81,10 +87,13 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Author:");
 
+        jLabel5.setForeground(new java.awt.Color(102, 102, 255));
         jLabel5.setText("Category:");
 
+        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAdd.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\new.png")); // NOI18N
         jButtonAdd.setText("Add");
         jButtonAdd.setPreferredSize(new java.awt.Dimension(83, 36));
@@ -94,12 +103,16 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(102, 102, 255));
         jLabel3.setText("Publisher:");
 
+        jLabel6.setForeground(new java.awt.Color(102, 102, 255));
         jLabel6.setText("Page:");
 
+        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
         jLabel2.setText("Publish date:");
 
+        jLabel7.setForeground(new java.awt.Color(102, 102, 255));
         jLabel7.setText("Price:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -299,4 +312,8 @@ private ConnectionManager conman;
     private javax.swing.JTextField jTextFieldPublisher;
     private javax.swing.JTextField jTextFieldTitle;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }

@@ -1,5 +1,6 @@
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ private ConnectionManager conman;
     public ReturnBook() {
          
         initComponents();
+        setIcon();
         conn = ConnectionManager.connect();
         setTitle("ReturnBook");
     }
@@ -129,6 +131,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel9.setForeground(new java.awt.Color(102, 102, 255));
         jLabel9.setText("Confirm Details");
 
         jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +140,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel18.setForeground(new java.awt.Color(102, 102, 255));
         jLabel18.setText("Customer Details");
 
+        jLabel6.setForeground(new java.awt.Color(102, 102, 255));
         jLabel6.setText("Name:");
 
         jTextFieldPhone.setEditable(false);
@@ -148,6 +153,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel7.setForeground(new java.awt.Color(102, 102, 255));
         jLabel7.setText("Phone:");
 
         jTextFieldEmail.setEditable(false);
@@ -157,18 +163,25 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel8.setForeground(new java.awt.Color(102, 102, 255));
         jLabel8.setText("Email:");
 
+        jLabel17.setForeground(new java.awt.Color(102, 102, 255));
         jLabel17.setText("Book Details");
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("ISBN:");
 
+        jLabel10.setForeground(new java.awt.Color(102, 102, 255));
         jLabel10.setText("Book Name:");
 
+        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
         jLabel2.setText("Publisher:");
 
+        jLabel3.setForeground(new java.awt.Color(102, 102, 255));
         jLabel3.setText("Author:");
 
+        jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Price:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -506,4 +519,8 @@ private ConnectionManager conman;
     private javax.swing.JTextField jTextFieldPrice;
     private javax.swing.JTextField jTextFieldPublisher;
     // End of variables declaration//GEN-END:variables
+
+     private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }

@@ -5,6 +5,7 @@
  */
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +32,7 @@ private ConnectionManager conman;
          
         initComponents(); //created to initialise components 
         conn = conman.connect();
+        setIcon();
         //main = new Main("books.accdb");
    
     }
@@ -67,6 +69,7 @@ private ConnectionManager conman;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Account", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +78,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
         jLabel2.setText("UserName:");
 
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +87,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonBack.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\back.png")); // NOI18N
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -98,8 +103,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(102, 102, 255));
         jLabel5.setText("Answer :");
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("Name:");
 
         jTextFieldAnswer.addActionListener(new java.awt.event.ActionListener() {
@@ -108,8 +115,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Security Questions :");
 
+        jLabel3.setForeground(new java.awt.Color(102, 102, 255));
         jLabel3.setText("Password :");
 
         jTextFieldUserName.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +127,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonCreate.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreate.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\new.png")); // NOI18N
         jButtonCreate.setText("Create");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -126,8 +136,10 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelEmail.setForeground(new java.awt.Color(102, 102, 255));
         jLabelEmail.setText("Email :");
 
+        jLabelPhoneNo.setForeground(new java.awt.Color(102, 102, 255));
         jLabelPhoneNo.setText("Phone.No :");
 
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -365,4 +377,8 @@ private ConnectionManager conman;
     private javax.swing.JTextField jTextFieldPhoneNo;
     private javax.swing.JTextField jTextFieldUserName;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }

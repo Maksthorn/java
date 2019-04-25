@@ -1,5 +1,6 @@
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +23,7 @@ private ConnectionManager conman;
      */
     public SellBook() {
         setTitle("Sell book");
+        setIcon();
         initComponents();
         conn = conman.connect();
     }
@@ -710,4 +712,8 @@ private ConnectionManager conman;
     private javax.swing.JTextField jTextFieldRemail;
     private javax.swing.JTextField jTextFieldRphone;
     // End of variables declaration//GEN-END:variables
+
+     private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }

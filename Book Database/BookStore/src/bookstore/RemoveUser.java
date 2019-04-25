@@ -5,6 +5,7 @@
  */
 package bookstore;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +27,7 @@ private ConnectionManager conman;
     public RemoveUser() {
         setTitle("Remove user");
         initComponents();
+        setIcon();
         conn = conman.connect();
     }
      public void Search() throws SQLException{
@@ -108,6 +110,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelUserName.setForeground(new java.awt.Color(102, 102, 255));
         jLabelUserName.setText("UserName :");
 
         jTextFieldAnswer.setToolTipText("answer to your question");
@@ -117,6 +120,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelAnswer.setForeground(new java.awt.Color(102, 102, 255));
         jLabelAnswer.setText("Answer :");
 
         jTextFieldUserName.setToolTipText("enter user name");
@@ -126,6 +130,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelName.setForeground(new java.awt.Color(102, 102, 255));
         jLabelName.setText("Name:");
 
         jTextFieldName.setEditable(false);
@@ -136,6 +141,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonSearch.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\search.png")); // NOI18N
         jButtonSearch.setText("Search");
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +150,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\cancel.png")); // NOI18N
         jButtonDelete.setText("DELETE");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +159,7 @@ private ConnectionManager conman;
             }
         });
 
+        jButtonBack.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Grim\\Documents\\NetBeansProjects\\BookStore\\icons\\return.png")); // NOI18N
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +168,7 @@ private ConnectionManager conman;
             }
         });
 
+        jLabelSecurityQuestion.setForeground(new java.awt.Color(102, 102, 255));
         jLabelSecurityQuestion.setText("Your Security Question :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -330,4 +339,8 @@ private ConnectionManager conman;
     private javax.swing.JTextField jTextFieldQuestion;
     private javax.swing.JTextField jTextFieldUserName;
     // End of variables declaration//GEN-END:variables
+
+     private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }

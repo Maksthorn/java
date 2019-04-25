@@ -151,6 +151,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelUserName">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="UserName :"/>
           </Properties>
         </Component>
@@ -164,6 +167,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelAnswer">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Answer :"/>
           </Properties>
         </Component>
@@ -177,6 +183,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelName">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Name:"/>
           </Properties>
         </Component>
@@ -191,6 +200,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSearch">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Grim\Documents\NetBeansProjects\BookStore\icons\search.png"/>
             </Property>
@@ -202,6 +214,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonDelete">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Grim\Documents\NetBeansProjects\BookStore\icons\cancel.png"/>
             </Property>
@@ -213,6 +228,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonBack">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Grim\Documents\NetBeansProjects\BookStore\icons\return.png"/>
             </Property>
@@ -224,6 +242,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelSecurityQuestion">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Your Security Question :"/>
           </Properties>
         </Component>
