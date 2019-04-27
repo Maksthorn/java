@@ -23,7 +23,7 @@ public class ConnectionManager {
     
     public static Connection connect() {
         try{
-        String msAccDB = "..//books.accdb"; // db name , located a dir above the folder containing this file
+        String msAccDB = "./books.accdb"; // db name , located a dir above the folder containing this file
         String dbURL = "jdbc:ucanaccess://" + msAccDB; 
         Connection connection = DriverManager.getConnection(dbURL,"",""); //db link user + pass are blank
         return connection;

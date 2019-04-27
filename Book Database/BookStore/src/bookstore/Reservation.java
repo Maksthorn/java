@@ -205,7 +205,8 @@ private ConnectionManager conman;
                         .addGap(34, 34, 34))))
         );
 
-        jTableReservation.setBackground(new java.awt.Color(51, 51, 51));
+        jTableReservation.setBackground(new java.awt.Color(102, 102, 102));
+        jTableReservation.setForeground(new java.awt.Color(255, 255, 255));
         jTableReservation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -239,7 +240,7 @@ private ConnectionManager conman;
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(201, Short.MAX_VALUE))
         );
 

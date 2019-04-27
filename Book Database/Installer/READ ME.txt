@@ -1,0 +1,4 @@
+run the installer and install the application to any folder you'd like 
+it will deploy a ms access db that will function with the application so you dont have to do anything :)
+
+any code you wish to look at is in the other folders

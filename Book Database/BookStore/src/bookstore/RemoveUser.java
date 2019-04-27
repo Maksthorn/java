@@ -99,6 +99,7 @@ private ConnectionManager conman;
         jLabelSecurityQuestion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -204,7 +205,7 @@ private ConnectionManager conman;
                                     .addGap(18, 18, 18)
                                     .addComponent(jButtonDelete)))
                             .addComponent(jTextFieldQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(31, Short.MAX_VALUE))))
+                        .addContainerGap(33, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +231,7 @@ private ConnectionManager conman;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBack)
                     .addComponent(jButtonDelete))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,7 +249,7 @@ private ConnectionManager conman;
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(547, 394));
+        setSize(new java.awt.Dimension(547, 346));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
