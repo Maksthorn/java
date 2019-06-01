@@ -4,6 +4,7 @@
   <artifactId>api-building</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>spring api</name>
+  
   <!--this creates a parent for the maven project -->
   <!--to take spring as parent -->
   <!--imports configuration from spring boot parent-->
