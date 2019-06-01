@@ -9,9 +9,9 @@ public class APiApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//creates a serverlet and hosts app here
+		//creates a serverlet and hosts APP here
 		
-		//arg1 spring application that is annotated with spring app
+		//arg1 spring application that is annotated with spring APP
 		//arg2 args that could have been passed to the class
 		SpringApplication.run(APiApp.class, args);
 		
