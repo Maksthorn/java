@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //tells the application that this is a spring application
+//alternatively use spring initializr @  https://start.spring.io/
+//to configure a spring app , download it and import to maven
 @SpringBootApplication
 public class APiApp {
 
