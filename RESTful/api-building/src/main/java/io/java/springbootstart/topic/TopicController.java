@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 //marks class as controller
@@ -15,7 +17,7 @@ public class TopicController {
 	private TopicService topicService;
 	
 	
-	//URL mapping
+	//URL mapping get request
 	@RequestMapping("/topics")
 	// Response gets auto converted to JSON as a HTTP request
 	//return list of topic objects
@@ -33,6 +35,12 @@ public class TopicController {
 		return topicService.getTopic(id);
 	}
 	
-	
+	//map  post request to /topics
+	@RequestMapping(method = RequestMethod.POST , value ="/topics")
+	//send object 
+	public void addTopic(@RequestBody Topic topic) {
+		topicService.addTopic(topic);
+		
+	}
 	
 }
