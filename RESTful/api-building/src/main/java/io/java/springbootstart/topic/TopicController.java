@@ -44,12 +44,18 @@ public class TopicController {
 	}
 	
 	//map  update request to /topics/{topic id}
-		@RequestMapping(method = RequestMethod.PUT , value ="/topics/{id}")
-		//send object 
-		public void updateTopic(@RequestBody Topic topic , @PathVariable String id) {
-			topicService.updateTopic(id, topic);
-			
-		}
+	@RequestMapping(method = RequestMethod.PUT , value ="/topics/{id}")
+	//send object 
+	public void updateTopic(@RequestBody Topic topic , @PathVariable String id) {
+		topicService.updateTopic(id, topic);
+		
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE , value = "/topics/{id}")
+	public void deleteTopic(@PathVariable String id) {
+		 topicService.deleteTopic(id);
+		
+	}
 	
 	
 }

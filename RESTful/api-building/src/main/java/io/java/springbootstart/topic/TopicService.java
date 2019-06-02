@@ -34,7 +34,7 @@ public class TopicService {
 	}
 
 	public void updateTopic(String id, Topic topic) {
-		//lopp through the list of topics
+		//loop through the list of topics
 		for(int i =0; i < topics.size(); i++) {
 			//topic at index
 			Topic t = topics.get(i);
@@ -47,4 +47,11 @@ public class TopicService {
 		}
 		
 	}
+
+	public void deleteTopic(String id) {
+		topics.removeIf(t -> t.getId().equals(id));
+	}
+
+
+
 }
