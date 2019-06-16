@@ -17,6 +17,10 @@
 	
 	<div id ="container">
 		<div id = "content">
+		<!-- button for add customer -->
+		<!-- when user clicks spring will call showformforadd -->
+		<input type="button" value= "Add Customer" onclick="window.location.href='showFormForAdd';return false;" class="add-button"/>
+		
 			<!-- table here -->
 			<table>
 				<tr>
