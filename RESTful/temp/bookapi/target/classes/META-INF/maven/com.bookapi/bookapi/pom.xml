@@ -7,10 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   
-  
-  
-  
-  
+ 
   <name>bookapi</name>
   <url>http://maven.apache.org</url>
 
@@ -75,13 +72,25 @@
   <version>3.1.0</version>
   <scope>provided</scope>
   </dependency>
-  
-  
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
   </dependencies>
+  <build>
+	  <plugins>
+		  <plugin>
+		  	<artifactId>maven-compiler-plugin</artifactId>
+		  	<version>3.5.1</version>
+		  	<configuration>
+		  		<source>1.8</source>
+		  		<target>1.8</target>
+		  	</configuration>
+		  </plugin>
+	  </plugins>
+  </build>
 </project>
