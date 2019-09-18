@@ -32,7 +32,7 @@ public class VehicleController {
 	
 	@RequestMapping("/Vehicles/{id}")
 	//bind pathvariable to {id}
-	public Vehicle getVehicle(@PathVariable String id) {
+	public Vehicle getVehicle(@PathVariable int id) {
 		return vehicleService.getVehicle(id);
 	}
 	
@@ -48,7 +48,7 @@ public class VehicleController {
 	@RequestMapping(method = RequestMethod.PUT, value="/Vehicles/{id}")
 	//post request is going to contain a json of vehicle 
 	//take requestbody and convert it to Vehicle type
-	public void updateVehicle(@RequestBody Vehicle vehicle, @PathVariable String id) {
+	public void updateVehicle(@RequestBody Vehicle vehicle, @PathVariable int id) {
 		vehicleService.updateVehicle(id,vehicle);
 	}
 	
@@ -56,7 +56,7 @@ public class VehicleController {
 	@RequestMapping(method = RequestMethod.DELETE, value="/Vehicles/{id}")
 	//post request is going to contain a json of vehicle 
 	//take requestbody and convert it to Vehicle type
-	public void deleteVehicle(@RequestBody Vehicle vehicle, @PathVariable String id) {
+	public void deleteVehicle(@RequestBody Vehicle vehicle, @PathVariable int id) {
 		vehicleService.deleteVehicle(id);
 	}
 	

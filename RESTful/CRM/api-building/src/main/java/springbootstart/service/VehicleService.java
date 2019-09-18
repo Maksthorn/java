@@ -29,7 +29,7 @@ public class VehicleService {
 		return vehicles;
 	}
 	
-	public Vehicle getVehicle(String id) {
+	public Vehicle getVehicle(int id) {
 		return vehicleRepository.findOne(id);
 		//cast int to string to compare in lambda
 		//return vehicles.stream().filter(v -> Integer.toString(v.getVehicleID()).equals(id)).findFirst().get();
@@ -40,7 +40,7 @@ public class VehicleService {
 		vehicleRepository.save(vehicle);
 	}
 
-	public void updateVehicle(String id,Vehicle vehicle) {
+	public void updateVehicle(int id,Vehicle vehicle) {
 		/*for(int i = 0; i < vehicles.size(); i++) {
 			Vehicle v = vehicles.get(i);
 			//loop through Vehicles and compare ID
@@ -53,7 +53,7 @@ public class VehicleService {
 		
 	}
 	
-	public void deleteVehicle(String id) {
+	public void deleteVehicle(int id) {
 		vehicleRepository.delete(id);
 		//vehicles.removeIf(v -> Integer.toString(v.getVehicleID()).equals(id));
 		

@@ -7,7 +7,7 @@ import springbootstart.entity.Vehicle;
 
 @Repository
 // entity type and data type of ID 
-public interface VehicleRepository extends CrudRepository <Vehicle, String>{
+public interface VehicleRepository extends CrudRepository <Vehicle, Integer>{
 	//https://medium.com/better-programming/building-a-spring-boot-rest-api-part-iii-integrating-mysql-database-and-jpa-81391404046a
 	//leave for now idk what its meant to do
 }

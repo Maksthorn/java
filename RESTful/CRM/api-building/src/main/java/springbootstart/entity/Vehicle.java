@@ -15,7 +15,7 @@ public class Vehicle {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String vehicleID;
+	private int vehicleID;
 	@Column(name="make")
 	private String Make;
 	@Column(name="model")
@@ -34,7 +34,7 @@ public class Vehicle {
 	
 	
 	
-	public Vehicle(String vehicleID, String make, String model, int year, String bodyStyle, String color,
+	public Vehicle(int vehicleID, String make, String model, int year, String bodyStyle, String color,
 			String inventoryDate, String trimeLevel) {
 		super();
 		this.vehicleID = vehicleID;
@@ -55,14 +55,14 @@ public class Vehicle {
     
 	
 	
-	public String getVehicleID() {
+	public int getVehicleID() {
 		return vehicleID;
 	}
 
 
 
 
-	public void setVehicleID(String vehicleID) {
+	public void setVehicleID(int vehicleID) {
 		this.vehicleID = vehicleID;
 	}
 
