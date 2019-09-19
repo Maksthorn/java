@@ -3,7 +3,6 @@ package springbootstart.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +19,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/")
-	public String homePage(){
-		return ("<h1>Welcome</h1>");
-	}
 	
 	 // this is for the api without a db
 	@RequestMapping("/Users")

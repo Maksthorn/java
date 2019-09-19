@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import springbootstart.entity.Vehicle;
 import springbootstart.service.VehicleService;
 
+@RequestMapping("/admin")
 @RestController
 public class VehicleController {
 	
