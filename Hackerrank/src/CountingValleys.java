@@ -1,53 +1,52 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
 
-public class CountingValleys {
-    public static class Solution {
+class Solution {
 
-        // Complete the countingValleys function below.
-        static int countingValleys(int n, String s) {
-            int altitude=0;
-            int num_valley=0;
+    // Complete the countingValleys function below.
+    static int countingValleys(int n, String s) {
+        int altitude=0;
+        int num_valley=0;
 
-            for(int i=0; i<n; i++){
-                if(s.charAt(i)=='U'){
-                    if(altitude== -1) {
-                        num_valley++;
-                    }
-                    altitude++;
+        for(int i=0; i<n; i++){
+            if(s.charAt(i)=='U'){
+                if(altitude== -1) {
+                    num_valley++;
                 }
-
-                if (s.charAt(i) == 'D') {
-                    altitude--;
-                }
+                altitude++;
             }
 
-            return num_valley;
+            if (s.charAt(i) == 'D') {
+                altitude--;
+            }
         }
 
-
+        return num_valley;
     }
 
-        private static final Scanner scanner = new Scanner(System.in);
 
-        public static void main(String[] args) throws IOException {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+    private static final Scanner scanner = new Scanner(System.in);
 
-            int n = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-            String s = scanner.nextLine();
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-            int result = Solution.countingValleys(n, s);
+        String s = scanner.nextLine();
 
-            bufferedWriter.write(String.valueOf(result));
-            bufferedWriter.newLine();
+        int result = countingValleys(n, s);
 
-            bufferedWriter.close();
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
-            scanner.close();
-        }
+        bufferedWriter.close();
+
+        scanner.close();
     }
 }
