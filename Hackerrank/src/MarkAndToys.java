@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MarkAndToys {
-    
+
     public static class Solution {
 
         // Complete the maximumToys function below.
