@@ -11,7 +11,7 @@ public class SimpleArraySum {
          * Complete the simpleArraySum function below.
          */
         static int simpleArraySum(int[] ar) {
- 
+
             int result = IntStream.of(ar).sum();
             return result;
 
