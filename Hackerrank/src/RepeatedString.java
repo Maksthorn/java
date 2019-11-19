@@ -16,8 +16,8 @@ public class RepeatedString {
                     count++;
 
             // atleast k repetition are required
-            long repititions = n / str.length();
-            count = count * repititions;
+            long repetitions = n / str.length();
+            count = count * repetitions;
 
             // if n is not the multiple of the
             // string size check for the remaining

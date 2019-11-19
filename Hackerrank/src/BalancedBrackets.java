@@ -20,12 +20,12 @@ public class BalancedBrackets {
                     if (stack.isEmpty()){
                         return "NO";
                     }else{
-                        char pop_val =stack.pop();
-                        if (s.charAt(i) ==')' && pop_val != '('){
+                        char popped_val = stack.pop();
+                        if (s.charAt(i) ==')' && popped_val != '('){
                             return "NO";
-                        }else if(s.charAt(i) ==']' && pop_val != '['){
+                        }else if(s.charAt(i) ==']' && popped_val != '['){
                             return "NO";
-                        }else if(s.charAt(i) =='}' && pop_val != '{'){
+                        }else if(s.charAt(i) =='}' && popped_val != '{'){
                             return "NO";
                         }
                     }

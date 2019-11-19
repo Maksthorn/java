@@ -8,7 +8,7 @@ public class HackerRank2DArray {
 
         // Complete the hourglassSum function below.
         static int hourglassSum(int[][] arr) {
-            int max_sum = -63; // constraints say that the input is between -9 to 9 meaning for 7 elements min val is -63 max
+            int max_sum = Integer.MIN_VALUE; // constraints say that the input is between -9 to 9 meaning for 7 elements min val is -63 max
             int rows = arr.length -2;
             int cols = arr[0].length -2;
 
