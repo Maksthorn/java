@@ -8,6 +8,8 @@ public class numsNotInArray {
     class Solution {
         public List<Integer> findDisappearedNumbers(int[] nums) {
             Set<Integer> set = new HashSet<>();
+            // java 10+ sadly leetcode uses 8
+            // var mySet = Set.of(someArray);
             for(int i = 1; i <= nums.length; i++){
                 set.add(i);
             }
