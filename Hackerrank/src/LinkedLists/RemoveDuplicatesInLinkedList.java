@@ -15,13 +15,9 @@ public class RemoveDuplicatesInLinkedList {
                 set.add(node.val);
                 previous = node;
             }
-            //node = node.next;
+            node = node.next;
         }
 
     }
-    class ListNode {
-        int val;
-        LinkedLists.ListNode next;
-        ListNode(int x) { val = x; }
-    }
+
 }
