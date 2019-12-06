@@ -1,28 +1,27 @@
+package Arrays;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class JumpOnClouds {
+public class MinAbsoluteDifferenceInAnArray {
 
     public static class Solution {
 
-        // Complete the jumpingOnClouds function below.
-        static int jumpingOnClouds(int[] c) {
-            int count = 0;
-            int i=0;
-            while(i < c.length - 1){
+        // Complete the minimumAbsoluteDifference function below.
 
-                if (i+2 == c.length || c[i+2] == 1){
-                    i++;
-                    count++;
-                }else{
-                    i+=2;
-                    count++;
-                }
+        static int minimumAbsoluteDifference(int[] arr) {
+            int min_abs_dif = Integer.MAX_VALUE;
+
+            Arrays.sort(arr);
+
+            for(int i=0; i<arr.length-1;i++){
+                int current_dif = Math.abs(arr[i]-arr[i+1]);
+                min_abs_dif = Math.min(min_abs_dif, current_dif);
             }
-            return count;
-
+            return min_abs_dif;
         }
 
         private static final Scanner scanner = new Scanner(System.in);
@@ -33,17 +32,17 @@ public class JumpOnClouds {
             int n = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-            int[] c = new int[n];
+            int[] arr = new int[n];
 
-            String[] cItems = scanner.nextLine().split(" ");
+            String[] arrItems = scanner.nextLine().split(" ");
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
             for (int i = 0; i < n; i++) {
-                int cItem = Integer.parseInt(cItems[i]);
-                c[i] = cItem;
+                int arrItem = Integer.parseInt(arrItems[i]);
+                arr[i] = arrItem;
             }
 
-            int result = jumpingOnClouds(c);
+            int result = minimumAbsoluteDifference(arr);
 
             bufferedWriter.write(String.valueOf(result));
             bufferedWriter.newLine();

@@ -1,3 +1,5 @@
+package Strings;
+
 public class parseStringData {
 
     class Solution {
