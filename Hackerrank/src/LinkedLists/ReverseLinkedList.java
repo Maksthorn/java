@@ -9,19 +9,21 @@ public class ReverseLinkedList {
      }
 
     class Solution {
-        public ListNode reverseList(ListNode head1) {
-            ListNode prev = null;
-            ListNode cur = head1;
+        public ListNode reverseList(ListNode head) {
+            // init pointers
+            ListNode previous = null;
+            ListNode current = head;
+            ListNode next = null;
 
-            while(cur != null){
-                ListNode tmp = cur.next;
-                cur.next= prev;
-                prev = cur;
-                cur = tmp;
+            while(current != null){
+                next = current.next; // save next
+                current.next = previous; // reverse pointer only
+                previous = current; // advancing pointer 'previous' to location of pointer 'current'
+                current = next; // advancing pointer 'current' to location of pointer 'next'
 
             }
 
-            return prev;
+            return previous; // new head at end
 
         }
     }
