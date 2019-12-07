@@ -1,7 +1,6 @@
 package LinkedLists;
 
 public class MergeTwoLinkedLists {
-
     public ListNode merge(ListNode head1, ListNode head2){
         ListNode ptr = new ListNode(0);
         ListNode head = ptr;
@@ -14,13 +13,14 @@ public class MergeTwoLinkedLists {
         }
 
         while(head1 != null && head2 != null){
-            if (head1.val <= head2.val){
+            if (head1.data <= head2.data){
                 ptr.next = head1;
                 head1 = head1.next;
-            }else {
-                ptr.next =head2;
+            }else{
+                ptr.next = head2;
                 head2 = head2.next;
             }
+            // store val in head
             ptr = ptr.next;
         }
 
@@ -31,12 +31,12 @@ public class MergeTwoLinkedLists {
         if (head2 != null){
             ptr.next = head2;
         }
-
         return head.next;
     }
 }
+
   class ListNode {
-      int val;
+      int data;
       ListNode next;
-    ListNode(int x) { val = x; }
+    ListNode(int data) { data = data; }
   }

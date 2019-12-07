@@ -9,10 +9,10 @@ public class RemoveDuplicatesInLinkedList {
         ListNode previous = null;
 
         while(node != null){
-            if(set.contains(node.val)){
+            if(set.contains(node.data)){
                 previous.next = node.next;
             }else{
-                set.add(node.val);
+                set.add(node.data);
                 previous = node;
             }
             node = node.next;

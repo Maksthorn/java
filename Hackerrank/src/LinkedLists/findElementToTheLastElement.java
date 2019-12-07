@@ -8,7 +8,7 @@ public class findElementToTheLastElement {
 
         int index = findElementToTheLastElement(head.next, k) + 1;
         if(index == k){
-            System.out.println(k +"th to the last node is " + head.val);
+            System.out.println(k +"th to the last node is " + head.data);
         }
         return index;
     }
