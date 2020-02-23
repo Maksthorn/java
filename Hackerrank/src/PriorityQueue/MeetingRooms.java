@@ -1,4 +1,4 @@
-package Strings;
+package PriorityQueue;
 
 import java.util.PriorityQueue;
 import java.util.*;
@@ -21,7 +21,7 @@ public class MeetingRooms {
             if (heap.size() > 0 && heap.peek() <= i.start){
                 heap.poll();
             }
-            
+
             heap.offer(i.end);
         }
         return heap.size();
