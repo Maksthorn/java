@@ -9,7 +9,7 @@ public class IntersectionOfTwoArrays {
 
         HashSet<Integer> set2 = new HashSet<>();
         for (Integer n : nums2) set2.add(n);
-
+        // retain overlap
         set1.retainAll(set2);
 
         int [] output = new int[set1.size()];
